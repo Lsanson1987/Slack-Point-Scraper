@@ -2,7 +2,7 @@ from slack import WebClient
 import re
 
 # Initialize the Slack client with your bot's API token
-slack_token = 'xoxb-5857357875557-6115749109201-CoRsy4zN6Nf2mMIFrZMqhXPG'
+slack_token = 'PLEDGE_BOT_API_TOKEN'
 client = WebClient(token=slack_token)
 
 # Define a dictionary to store pledge points for each user
