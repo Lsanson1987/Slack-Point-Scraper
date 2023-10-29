@@ -21,11 +21,11 @@ for message in response['messages']:
     text = message['text']
 
     # Use regular expressions to find pledge point changes
-    changes = re.findall(r'[+-]\d+', text)
+    changes = re.findall(r'[+-]?\s*\d+', text)
 
     # Update pledge points for the user
     for change in changes:
-        change_value = int(change)
+        change_value = int(change.replace(" ", "").replace("+", ""))
         if user_id not in pledge_points:
             pledge_points[user_id] = 0
         pledge_points[user_id] += change_value
