@@ -1,10 +1,24 @@
 from slack import WebClient
 from dotenv import load_dotenv
+import openai
 import re
 import os
 
 #load environment variables
 load_dotenv()
+
+#openai code
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+openai.api_key = API_KEY
+
+response = openai.ChatCompletion.create(
+        model='gpt-3.5-turbo',
+        messages=[
+            {"role": "user", "content": "What is 2 + 3?"}
+        ]
+    )
+    
+to_format = response.choices[0]["message"]['content']
 # Initialize the Slack client with your bot's API token
 slack_token = os.getenv('SLACK_API_KEY')
 client = WebClient(token=slack_token)
