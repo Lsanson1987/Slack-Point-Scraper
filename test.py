@@ -1,9 +1,12 @@
 from slack import WebClient
+from dotenv import load_dotenv
 import re
 import os
 
+#load environment variables
+load_dotenv()
 # Initialize the Slack client with your bot's API token
-slack_token = "Token"
+slack_token = os.getenv('SLACK_API_KEY')
 client = WebClient(token=slack_token)
 
 # Define a dictionary to store pledge points for each user
